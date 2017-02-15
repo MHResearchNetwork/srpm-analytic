@@ -5,8 +5,8 @@
 The [Mental Health Research Network (MHRN)](http://hcsrn.org/mhrn/en/) Suicide Risk Prediction Model (SRPM) encompasses the following major programming tasks:
 
 1. Identify denominator (code written in [Base SAS®](http://www.sas.com/en_us/software/base-sas.html))
-    1. Recommended: Perform quality checks on [Patient Health Questionnaire (PHQ-9)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1495268/) data (code written in Base SAS)**
-2. **Create analytic data set (code written in Base SAS)
+    1. Recommended: Perform quality checks on [Patient Health Questionnaire (PHQ-9)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1495268/) data (code written in Base SAS)
+2. **Create analytic data set (code written in Base SAS)**
 3. Implement model (code written in [R](https://www.r-project.org/))
 
 In addition to this README, the srpm-analytic repository contains the following materials that were used to construct the analytic data set for use in modeling.
@@ -90,7 +90,7 @@ The basic procedure to generate the SRPM analytic data set is as follows:
 	* Each subroutine also checks to see if intended output data set has already been generated and stored in /TEMP. If the data set already exists, a warning message will be written to the log, and the subroutine will stop executing.
 		* Note: The warning message directs the user to manually delete the output data set if s/he wishes to recreate it. This is intended to prevent accidentally resubmitting a subroutine and writing over a data set that took a long time to create!
 5. After successfully executing all subroutines, make sure that the aforementioned SAS data set and HTML/XML files have been created in the /SHARE and /LOCAL subfolders, respectively.
-6. Review the contents of the /LOCAL subfolder and share with site PI to look for errors or issues before proceeding to modeling.
+6. Review the contents of the /LOCAL subfolder to look for errors or issues before proceeding to modeling.
 
 **Table 1. PHQ9_CESR_PRO data dictionary**
 
