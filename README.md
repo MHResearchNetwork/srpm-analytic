@@ -1,6 +1,5 @@
 # Suicide Risk Prediction Model (SRPM)
 ## Analytic Data Set Programming
-### Note: Repository development in progress!
 
 The [Mental Health Research Network (MHRN)](http://hcsrn.org/mhrn/en/) Suicide Risk Prediction Model (SRPM) encompasses the following major programming tasks:
 
