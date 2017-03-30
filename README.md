@@ -8,7 +8,7 @@ The [Mental Health Research Network (MHRN)](http://hcsrn.org/mhrn/en/) Suicide R
 2. **Create analytic data set (code written in Base SAS)**
 3. Implement model (code written in [R](https://www.r-project.org/))
 
-In addition to this README, the srpm-analytic repository contains a set of basic descriptive statistics (SRPM_ANALYTIC_DESC_STATS.xlsx) about the MHRN data set that was served as input for the modeling referenced in step # above. This repository also contains the following materials that were used to construct the analytic data set for use in modeling.
+In addition to this README, the srpm-analytic repository contains a set of basic descriptive statistics (SRPM_ANALYTIC_DESC_STATS.xlsx) about the MHRN data set that served as input for the modeling referenced in step 3 above. This repository also contains the following materials that were used to construct the analytic data set for use in modeling.
 
 * **Main SAS program:** SRPM_ANALYTIC_MASTER.sas
     * **Details:** 
