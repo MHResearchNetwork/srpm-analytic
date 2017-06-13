@@ -3,6 +3,11 @@
 *   Filename: SRPM_ANALYTIC_COMBINE.sas                                       *;
 *   Purpose:  Combine all temporary data sets into final analytic data set.   *;
 *******************************************************************************;
+* UPDATE HISTORY                                                              *;
+*   20170227  Initial GitHub version finalized.                               *;
+*   20170623  Added DAYS_SINCE_PREV to analytic data set.                     *;
+*******************************************************************************;
+ 
 options nomprint;
 
 %macro combine;
@@ -97,6 +102,8 @@ options nomprint;
             label="Random person ID (1st 2 digits = site)"
           , iv.visit_seq            
             label="Visit sequence number for each person"
+          , iv.days_since_prev
+            label="Days since previous visit for each person"
           , iv.days_since_visit1    
             label="Days since first index visit for each person"
           , iv.visit_type

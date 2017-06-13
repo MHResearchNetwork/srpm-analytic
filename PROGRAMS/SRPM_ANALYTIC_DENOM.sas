@@ -4,6 +4,14 @@
 *   Purpose:  Prepare temporary visit, person-date, and person denominator    *;
 *             data sets for use in creation of final analysis data set.       *;
 *******************************************************************************;
+* UPDATE HISTORY                                                              *;
+*   20170227  Inital GitHub version finalized.                                *;
+*   20170613  Corrected error in which DAYS_SINCE_VISIT1 had been constructed *;
+*             to calculate days since previous visit. Retained that variable  *;
+*             (renamed to DAYS_SINCE_PREV) and used it to calculate actual    *;
+*             DAYS_SINCE_VISIT1.                                              *;
+*******************************************************************************;
+
 options nomprint;
 
 %macro index_visit;
@@ -42,10 +50,11 @@ options nomprint;
         visit_date = adate;
         visit_year = year(visit_date);
         retain prev_date random_id;
-        length visit_seq days_since_visit1 3;
+        length visit_seq days_since_prev days_since_visit1 3;
         array is_assigned [1:99999999] _temporary_ (99999999 * 0);
         if first.mrn then do;
           visit_seq = 0;
+          days_since_prev = .;
           days_since_visit1 = .;
           prev_date = .;
           do while (1);
@@ -56,7 +65,8 @@ options nomprint;
           end;
         end;
           else do;
-            days_since_visit1 = visit_date - prev_date;
+            days_since_prev = visit_date - prev_date;
+            days_since_visit1 = days_since_visit1 + days_since_prev;
           end;    
         visit_seq + 1;
         prev_date = adate;
@@ -65,7 +75,7 @@ options nomprint;
         age = min(intck('year', birth_date, visit_date, 'c'), 90);
         person_id = cats("&_sitecode", put(random_id, z8.));
         keep mrn visit_date enc_id department provider visit_year visit_seq 
-          days_since_visit1 visit_type age person_id
+          days_since_prev days_since_visit1 visit_type age person_id
         ;
       run;
 
