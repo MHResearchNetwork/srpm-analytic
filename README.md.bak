@@ -50,7 +50,6 @@ In addition to this README, the srpm-analytic repository contains a set of basic
 	*	SRPM_ANALYTIC_SUMMARY.sas - Generate descriptive statistics about final analytic data set.
 * **Subdirectory /INPUT:** Stores the following files required as input to various subroutines:
 	* SRPM_DX_LIST.txt: Mental health–related diagnosis codes
-		* Note: There is a known issue with codes 305.00, 305,01, and 305.02, which were misclassified as drug abuse instead of alcohol abuse.
 	* DELIVERY_DX_LIST.sas7bdat: Diagnosis codes indicative of live births
 	* DELIVERY_PX_LIST.sas7bdat: Procedure codes indicative of live births
 	* MHRN2_NDC2015.sas7bdat: NDC codes for mental health drugs
